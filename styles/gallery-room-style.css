@@ -1,0 +1,318 @@
+:root {
+    --wall-background: black;
+    --grid-side: 5vw;
+}
+
+.title {
+    overflow: hidden;
+    color: white;
+    font-size: larger;
+    text-align: center;
+    
+}
+
+#reverse-title {
+    transform: scale(-1, 1);
+}
+
+body {
+    background-color: black;
+}
+.gallery-room {
+    overflow: hidden;
+    height: 80vh;
+}
+
+.grid-perspective {
+    display: block;
+    position: relative;
+    display: grid;
+    padding-top: 50vh;
+    padding-left: 26vw;
+    height: 23vh;
+    grid-template-columns: var(--grid-side) var(--grid-side) var(--grid-side) var(--grid-side) var(--grid-side) var(--grid-side) var(--grid-side) var(--grid-side) var(--grid-side);
+}
+
+.blocks-perspective {
+    z-index: 1;
+}
+
+#block1-perspective:hover ~ .room {
+    perspective-origin: 20% 0%;
+}
+
+#block2-perspective:hover ~ .room {
+    perspective-origin: 28% 0%;
+}
+
+#block3-perspective:hover ~ .room {
+    perspective-origin: 36% 0%;
+}
+#block4-perspective:hover ~ .room {
+    perspective-origin: 44% 0%;
+}
+
+#block6-perspective:hover ~ .room {
+    perspective-origin: 52% 0%;
+}
+
+#block7-perspective:hover ~ .room {
+    perspective-origin: 60% 0%;
+}
+
+#block8-perspective:hover ~ .room {
+    perspective-origin: 68% 0%;
+}
+#block9-perspective:hover ~ .room {
+    perspective-origin: 76% 0%;
+}
+
+.room {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    justify-content: center; 
+    flex-wrap: wrap;
+    align-items: center;   
+    height: 90vh;
+    perspective: 1000px;
+    perspective-origin: 50% 0%;
+    animation: room-entry 4s;
+}
+
+body {
+    background-color: black;
+}
+
+#room-images {
+    max-width: 40%;
+    max-height: 40%;
+    border: 3px solid white;
+}
+
+.front-wall {
+    border-style: solid;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex: 4;
+    height: 80%;
+    background-color: var(--wall-background);    
+    transform-style: preserve-3d;
+    transform: 
+    translateZ(-1200px);
+}
+
+.left-wall {
+    border-style: solid;
+    border-color: white;
+    width: max-content;
+    flex: 1;
+    background-color: var(--wall-background);
+    
+    overflow: hidden;
+    height: 80%;
+    transform-style: preserve-3d;
+    transform:
+    rotateY(90deg)
+    scaleX(4)
+    translateX(150px)
+}
+
+.wall-photos {
+    margin: 0 auto;
+    display:flex;
+    row-gap: 1vh;
+    flex-wrap:wrap;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+
+}
+
+.right-wall {
+    border-style: solid;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex: 1;
+    background-color: var(--wall-background);    
+    height: 80%;
+    transform-style: preserve-3d;
+    transform:
+    rotateY(-90deg)
+    scaleX(4)
+    translateX(-150px)
+}
+
+
+
+.left-wall:active {
+    transform: 
+    rotateY(-180deg)
+    translateX(-17vw)
+    scaleY(1.2);
+    flex: 10;
+    z-index: 1;
+}
+
+.right-wall:active {
+    transform: 
+    rotateY(180deg)
+    translateX(17vw)
+    scaleY(1.2);
+    flex: 10;
+    z-index: 1;
+}
+
+.front-wall:active {
+    transform: 
+    /* scaleY(1.1) */
+    translateZ(100px)
+    translateY(-50px);
+    z-index: 1;
+}
+
+.floor:hover {
+    color: white;
+}
+
+
+@keyframes room-entry {
+    from {perspective: 100px;perspective-origin: 50% 100%;}
+    to {perspective: 1000px;perspective-origin: 50% 0%;}
+}
+
+.floor {
+    border-style: solid;
+    border-color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 2em;
+    color:black;
+    font-family:fantasy;
+    background-color: black;
+    background-size: cover;
+    width: 40%;
+    height: 60%;
+    transform-style: preserve-3d;
+    transform:
+    rotateX(90deg)
+    translateY(200px);
+ 
+
+}
+
+
+.section-2 {
+    text-align: center;
+}
+
+.second-section {
+    overflow: hidden;
+    display: flex;
+}
+
+.falling-photos {
+    display: flex;
+    column-gap: 2vw;
+    margin-left:10vw;
+    width: 100%;
+    height: 40vw;
+}
+.falling-photo {
+    animation: photo-shower 3s ease-in infinite;
+}
+
+.falling-photo:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.falling-photo:nth-child(2) {
+    animation-delay: 1s;
+}
+.falling-photo:nth-child(3) {
+    animation-delay: 3s;
+}
+.falling-photo:nth-child(4) {
+    animation-delay: 2s;
+}
+
+.falling-photo:nth-child(5) {
+    animation-delay: 4s;
+}
+.falling-photo:nth-child(6) {
+    animation-delay: 5s;
+}
+.falling-photo > img{
+    width:10vw;
+    border-radius: 50%;
+    
+}
+
+@keyframes photo-shower {
+    0% {transform: translateY(-80vh)}
+    100% {transform: translateY(80vh) rotateY(180deg)}
+}
+
+.curved-box {
+
+    border:white solid;
+    background-image: linear-gradient(black, rgb(45, 45, 124));
+    width: 100%;
+    border-top-left-radius: 1000px;
+    border-top-right-radius: 1000px;
+
+}
+
+.curved-box-title {
+    padding-left: 30vw;
+    padding-top: 3vh;
+    width: 40vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw;
+    column-gap: 0.5vw;
+    row-gap: 4vw;
+    column-gap: 4vw;
+    padding-top: 6vh;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    justify-items: stretch;
+    align-items:center;
+}
+
+.grid-container > div > img {
+    width: 100%;
+}
+
+#grid-photo {
+    overflow: hidden;
+}
+
+.grid-container > div > img:hover {
+    scale: 1.2;
+}
+
+.grid-container > div:hover {
+    box-shadow: 10px 10px 10px #ccc;
+}
+
+#grid-images1 {
+    grid-column-start: span 2;
+}
+
+#span-2-columns {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
